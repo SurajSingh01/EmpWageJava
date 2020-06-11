@@ -1,0 +1,1 @@
+/* Welcome to java program for emp wage */
