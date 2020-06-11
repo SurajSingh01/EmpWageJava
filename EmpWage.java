@@ -7,13 +7,14 @@ public class EmpWage{
 		int WAGE_PER_HOUR=20;
 		int FULL_DAY_HOURS=8;
 		//variable
-		int dailyWage=0;
 		int empHrs=0;
 		int totalWage=0;
+		int totalWorkingHrs=0;
+		int totalWorkingDays=0;
 
 		System.out.println("Welcome Wage Employee..");
 		//Computation
-		for (int i=0; i<20; i++ )
+		while( totalWorkingHrs <= 100 && totalWorkingDays <=20 )
 		{
 			 int empCheck = (int)Math.floor(Math.random() * 10 ) %3;
 			 switch (empCheck){
@@ -27,9 +28,10 @@ public class EmpWage{
 							empHrs=8;
 							break;
 			}
-		dailyWage= WAGE_PER_HOUR * empHrs;
-		totalWage= totalWage + dailyWage;
-			}
+		++totalWorkingDays;
+		totalWorkingHrs= totalWorkingHrs + empHrs;
+		}
+		totalWage= totalWorkingHrs * WAGE_PER_HOUR;
 		System.out.println("Employee Daily Wage=" +totalWage);
 	}
 }
