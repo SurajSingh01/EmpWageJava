@@ -23,7 +23,7 @@ public class EmpWage{
 				case 1:
 							empHrs=4;
 							break;
-				case 3:
+				case 2:
 							empHrs=8;
 							break;
 			}
