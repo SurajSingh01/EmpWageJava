@@ -30,7 +30,7 @@ public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int 
       this.hrsPerMonth=hrsPerMonth;
       company=company;
 
-		while( totalWorkingHrs <= hrsPerMonth && totalWorkingDays < daysPerMonth ) {
+		while( totalWorkingHrs < hrsPerMonth && totalWorkingDays < daysPerMonth ) {
 		empCheck = (int)Math.floor(Math.random() * 10 ) %3;
       	switch (empCheck) {
             case 0:
@@ -55,7 +55,7 @@ public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int 
 public static void main (String[] args) {
 		EmpWage emp=new EmpWage();
 		emp.getWelcomeMessage();
-		emp.getEmpSalary("DMart ", 26, 60, 20);
+		emp.getEmpSalary("DMart ", 26, 60, 20);          //company dayspermonth hrspermonth wageperhour
 		emp.getEmpSalary("Reliance fresh ", 28, 70, 18);
 		}
 }
