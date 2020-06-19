@@ -1,6 +1,12 @@
-/* Welo
-come to java program for emp wage */
-public class EmpWage{
+/* Welocome to java program for emp wage */
+import java.io.*;
+
+interface Employee {
+      public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr);
+      }
+
+
+public class EmpWage implements Employee {
 		//Constant
 		private static final int IS_FULL_TIME=2;
 		private static final int IS_PART_TIME=1;
@@ -22,6 +28,10 @@ public void getWelcomeMessage() {
 		System.out.println("Welcome Wage Employee wage computation");
 		}
 
+
+//class Empdetails extends EmpWage implements Employee { 
+
+//		Empdetails() { }
 
 public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
 		this.wagePerHr=wagePerHr;
@@ -54,6 +64,7 @@ public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int 
 public String toString() {
 		return "Total Emp Wage for Company : "+company+" is: " +totalWage;
 		}
+
 
 
 public static void main (String[] args) {
