@@ -51,7 +51,12 @@ public void getEmpSalary() {
 		totalWorkingHrs += empHrs;
 		System.out.println("Days :  "+totalWorkingDays+ " Employee Hours :  " +empHrs);
 		}
+<<<<<<< HEAD
 
+=======
+		System.out.println("************************"+company+"**********************");
+		System.out.println("Total working Hrs for the employee in "+daysPerMonth+ " days is " +totalWorkingHrs);
+>>>>>>> e77ce6e40f9a5b1be4b3ec358d167bd431cbdf1a
 		totalWage = totalWorkingHrs * wagePerHr;
  //		System.out.println("Employee total wage"+totalWage);
 	}
