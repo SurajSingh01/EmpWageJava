@@ -1,8 +1,9 @@
 /* Welocome to java program for emp wage */
 import java.io.*;
+import java.util.*;
 
 interface Employee {
-      public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr);
+      public int getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr);
       }
 
 
@@ -33,7 +34,7 @@ public void getWelcomeMessage() {
 
 //		Empdetails() { }
 
-public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
+public int getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
 		this.wagePerHr=wagePerHr;
       this.daysPerMonth=daysPerMonth;
       this.hrsPerMonth=hrsPerMonth;
@@ -54,10 +55,11 @@ public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int 
          }
 			++totalWorkingDays;
 		totalWorkingHrs += empHrs;
-		System.out.println("Days :  "+totalWorkingDays+ " Employee Hours :  " +empHrs);
+		//System.out.println("Days :  "+totalWorkingDays+ " Employee Hours :  " +empHrs);
 		}
 		totalWage = totalWorkingHrs * wagePerHr;
-		System.out.println("Total Salary for employee of " +company+" is = Rs. "+totalWage);
+		//System.out.println("Total Salary for employee of " +company+" is = Rs. "+totalWage);
+		return totalWage;
 }
 
 @Override
@@ -69,18 +71,16 @@ public String toString() {
 
 public static void main (String[] args) {
 		EmpWage emp[]= new EmpWage[5];
-		emp[0]=new EmpWage();
-		emp[1]=new EmpWage();
+		//emp[0]=new EmpWage();
+		//emp[1]=new EmpWage();
+		ArrayList<Integer> salary = new ArrayList<Integer>();
 		EmpWage employee = new EmpWage();
 		employee.getWelcomeMessage();
 		System.out.println("Company Details");
 		//EmpWage dMart= new EmpWage("DMart ", 26, 60, 20);
-		emp[0].getEmpSalary("DMart ", 26, 60, 20);
-		emp[1].getEmpSalary("Reliance fresh", 28, 70, 18);
-		//EmpWage reliance=new EmpWage("Reliance fresh", 28, 70, 18);
-		//dMart.getEmpSalary();
-		//System.out.println(dMart);
-		//reliance.getEmpSalary();
-		//System.out.println(reliance);
+		salary.add(0, employee.getEmpSalary("DMart ", 26, 60, 20));
+		salary.add(1, employee.getEmpSalary("Reliance fresh", 28, 70, 18));
+		for (int i=0;i<salary.size();i++)
+			System.out.println("Per Month Wage  is Rs. "+salary.get(i));
 		}
 }
