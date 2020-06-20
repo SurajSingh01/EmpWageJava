@@ -23,22 +23,21 @@ public class EmpWage implements Employee {
 		int wagePerHr = 0;
 		int empCheck=0;
 		String company;
-		int jobType=0;
 
 public void getWelcomeMessage() {
 		System.out.println("Welcome Wage Employee wage computation");
 		}
 
 
-//class Empdetails extends EmpWage implements Employee { 
 
-//		Empdetails() { }
-
-public int getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
+public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
 		this.wagePerHr=wagePerHr;
       this.daysPerMonth=daysPerMonth;
       this.hrsPerMonth=hrsPerMonth;
       this.company=company;
+		int[] dailWage=new int[daysPerMonth+1];
+		int[] totalWage=new int[daysPerMonth+1];
+		int i=0;
 
 		while( totalWorkingHrs < hrsPerMonth && totalWorkingDays < daysPerMonth ) {
 		empCheck = (int)Math.floor(Math.random() * 10 ) %3;
@@ -54,12 +53,19 @@ public int getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int w
                      break;
          }
 			++totalWorkingDays;
-		totalWorkingHrs += empHrs;
+		//totalWorkingHrs += empHrs;
+		dailyWage=empHrs * wagePerHr;
+		totalWage+=dailyWage;
+		dailyWage[i]=dailyWage;
+		totalWage[i]=totalWage;
+		i++;
 		//System.out.println("Days :  "+totalWorkingDays+ " Employee Hours :  " +empHrs);
 		}
-		totalWage = totalWorkingHrs * wagePerHr;
-		//System.out.println("Total Salary for employee of " +company+" is = Rs. "+totalWage);
-		return totalWage;
+		//totalWage = totalWorkingHrs * wagePerHr;
+		System.out.println("Days \t DailyWage \t TotalSalary");
+		System.out.println();
+		for(int j=0;j<dailyWage.length;j++)
+			System.out.println("Day"+(j+1)+"\t "+dailyWage[j]+"\t \t "+totalWage[j]);
 }
 
 @Override
@@ -70,17 +76,8 @@ public String toString() {
 
 
 public static void main (String[] args) {
-		EmpWage emp[]= new EmpWage[5];
-		//emp[0]=new EmpWage();
-		//emp[1]=new EmpWage();
-		ArrayList<Integer> salary = new ArrayList<Integer>();
 		EmpWage employee = new EmpWage();
 		employee.getWelcomeMessage();
-		System.out.println("Company Details");
-		//EmpWage dMart= new EmpWage("DMart ", 26, 60, 20);
-		salary.add(0, employee.getEmpSalary("DMart ", 26, 60, 20));
-		salary.add(1, employee.getEmpSalary("Reliance fresh", 28, 70, 18));
-		for (int i=0;i<salary.size();i++)
-			System.out.println("Per Month Wage  is Rs. "+salary.get(i));
+		employee.getEmpSalary("DMart ", 26, 60, 20);
 		}
 }
