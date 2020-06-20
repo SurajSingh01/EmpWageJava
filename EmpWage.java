@@ -13,6 +13,7 @@ public class EmpWage implements Employee {
 		private static final int IS_PART_TIME=1;
 
 		//variable
+		
 		int empHrs=0;
 		int totalWorkingHrs=0;
 		int totalWorkingDays=0;
@@ -30,14 +31,16 @@ public void getWelcomeMessage() {
 
 
 
-public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
+public int getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int wagePerHr) {
 		this.wagePerHr=wagePerHr;
       this.daysPerMonth=daysPerMonth;
       this.hrsPerMonth=hrsPerMonth;
       this.company=company;
-		int[] dailWage=new int[daysPerMonth+1];
+		int[] dailyWage=new int[daysPerMonth+1];
 		int[] totalWage=new int[daysPerMonth+1];
 		int i=0;
+		int totalSalary=0;
+		int dailySalary=0;
 
 		while( totalWorkingHrs < hrsPerMonth && totalWorkingDays < daysPerMonth ) {
 		empCheck = (int)Math.floor(Math.random() * 10 ) %3;
@@ -54,18 +57,19 @@ public void getEmpSalary(String company, int daysPerMonth, int hrsPerMonth, int 
          }
 			++totalWorkingDays;
 		//totalWorkingHrs += empHrs;
-		dailyWage=empHrs * wagePerHr;
-		totalWage+=dailyWage;
-		dailyWage[i]=dailyWage;
-		totalWage[i]=totalWage;
+		dailySalary=empHrs * wagePerHr;
+		totalSalary = totalSalary+dailySalary;
+		dailyWage[i]=dailySalary;
+		totalWage[i]=totalSalary;
 		i++;
 		//System.out.println("Days :  "+totalWorkingDays+ " Employee Hours :  " +empHrs);
 		}
 		//totalWage = totalWorkingHrs * wagePerHr;
-		System.out.println("Days \t DailyWage \t TotalSalary");
+		System.out.println("Days \t DailyWage \t TotalWage");
 		System.out.println();
 		for(int j=0;j<dailyWage.length;j++)
 			System.out.println("Day"+(j+1)+"\t "+dailyWage[j]+"\t \t "+totalWage[j]);
+		return 0;
 }
 
 @Override
